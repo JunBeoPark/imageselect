@@ -1,0 +1,8 @@
+package com.android.selectimage
+
+data class SearchItemModel(
+    var title: String,
+    var dateTime: String,
+    var url: String,
+    var islike: Boolean = false
+)
