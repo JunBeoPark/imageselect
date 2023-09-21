@@ -1,0 +1,22 @@
+package com.android.selectimage
+
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.ads.mediationtestsuite.viewmodels.ItemViewHolder
+
+class SearchAdapter(private val mContext: Context) : RecyclerView.Adapter<SearchAdapter.ItemViewHolder>() {
+
+    var items = ArrayList<SearchItemModel>()
+
+    fun clearItem() {
+        items.clear()
+        notifyDataSetChanged()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        val binding = SearchItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ItemViewHolder(binding)
+    }
+}
