@@ -2,6 +2,8 @@ package com.android.selectimage
 
 import android.content.Context
 import android.util.Log
+import com.android.selectimage.Constants.PREFS_NAME
+import com.android.selectimage.Constants.PREF_KEY
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -21,21 +23,21 @@ object Utils {
         } catch (e: ParseException) {
             e.printStackTrace()
         }
-        
+
         Log.d("date", "getDateFromTimestampWithFormat date >> $date")
-        
+
         val df = SimpleDateFormat(toFormatformat)
         res = df.format(date)
         return res
-    }    
-    
+    }
+
     fun saveLastSearch(context: Context, query: String) {
         val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         prefs.edit().putString(PREF_KEY, query).apply()
     }
-    
+
     fun getLastSearch(context: Context): String? {
         val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        return prefs.getString(PreF_KEY, null)
+        return prefs.getString(PREF_KEY, null)
     }
 }
