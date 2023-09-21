@@ -1,0 +1,16 @@
+package com.android.selectimage
+
+import android.telecom.Call
+import androidx.room.Query
+
+interface Retrofit_interFace {
+
+    @GET("v2/search/image")
+    fun image_search(
+        @Header("Authorization") apiKey: String?,
+        @Query("query") query: String?,
+        @Query("sort") sort: String?,
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): Call<ImageModel?>?
+}
