@@ -1,0 +1,19 @@
+package com.android.selectimage
+
+import androidx.lifecycle.ViewModelProvider.NewInstanceFactory.Companion.instance
+
+object retrofit_client {
+
+    val apiService: Retrofit_interFace
+        get() = instance.create(Retrofit_interface::class.java)
+
+    private val instance: Retrofit
+        private get() {
+            val gson = GsonBuilder().setLenient().create()
+
+            return Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build()
+        }
+}
