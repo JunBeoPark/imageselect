@@ -2,6 +2,10 @@ package com.android.selectimage
 
 import android.telecom.Call
 import androidx.room.Query
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Query
 
 interface Retrofit_interFace {
 
