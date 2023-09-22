@@ -30,8 +30,8 @@ class BookmarkAdapter (var mContext: Context) : RecyclerView.Adapter<RecyclerVie
         holder.tv_datetime.text =
             getDateFromTimestampWithFormat(
                 items[position].dateTime,
-                "",
-                ""
+                "yyyy-MM-dd'T'HH:mm:ss.SSS+09:00",
+                "yyyy-MM-dd HH:mm:ss"
             )
 
     }
