@@ -13,6 +13,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import javax.security.auth.callback.Callback
+import com.android.selectimage.Constants
+import com.android.selectimage.ImageModel
+import com.android.selectimage.FragmentSearchBinding
+import com.android.selectimage.retrofit_client.apiService
+import com.android.selectimage.SearchItemModel
+import com.android.selectimage.Utils
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
@@ -70,8 +79,9 @@ class SearchFragment : Fragment() {
     }
 
     private fun fetchImageResults(query: String) {
-        apiService.image_search(SyncStateContract.Constants.AUTH_HEADER, query, "recency", 1, 80)?.enqueue(object : Callback<ImageModel?> {
-            override fun onResponse(call: Call<ImageModel?>, response: Response<ImageModel?>) {
+        apiService.image_search(SyncStateContract.Constants.AUTH_HEADER, query, "recency", 1, 80)
+            ?.enqueue(object : Callback<ImageModel?> {
+              override fun onResponse(call: Call<ImageModel?>, response: Response<ImageModel?>) {
                 response.body()?.meta?.let { meta ->
                     if (meta.totalCount > 0) {
                         response.body()!!.documents.forEach { document ->
