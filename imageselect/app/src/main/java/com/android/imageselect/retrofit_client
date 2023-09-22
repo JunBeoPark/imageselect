@@ -1,6 +1,11 @@
 package com.android.selectimage
 
+import com.google.gson.GsonBuilder
+import com.android.selectimage.Constants
+import com.android.selectimage.Retrofit_interface
 import androidx.lifecycle.ViewModelProvider.NewInstanceFactory.Companion.instance
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 object retrofit_client {
 
