@@ -10,6 +10,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.android.selectimage.Utils.getDateFromTimestampWithFormat
 import com.google.android.ads.mediationtestsuite.viewmodels.ItemViewHolder
+import com.bumptech.glide.Glide
+import com.android.selectimage.MainActivity
+import com.android.selectimage.Utils.getDateFromTimestampWithFormat
+import com.android.selectimage.SearchItemBinding
+import com.android.selectimage.SearchItemModel       
 
 class SearchAdapter(private val mContext: Context) : RecyclerView.Adapter<SearchAdapter.ItemViewHolder>() {
 
@@ -36,8 +41,8 @@ class SearchAdapter(private val mContext: Context) : RecyclerView.Adapter<Search
         holder.tv_title.text = currentItem.title
         holder.tv_datetime.text = getDateFromTimestampWithFormat(
             currentItem.dateTime,
-            "",
-            ""
+            "yyyy-MM-dd'T'HH:mm:ss.SSS+09:00",
+            "yyyy-MM-dd HH:mm:ss"
         )
     }
 
