@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils.replace
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import com.android.selectimage.ActivityMainBinding
+import com.android.selectimage.BookmarkFragment
+import com.android.selectimage.SearchFragment
+import com.android.selectimage.SearchItemModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    var liked: ArrayList<SearchItemModel> = ArrayList()
+    var likedItems: ArrayList<SearchItemModel> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
